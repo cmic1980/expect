@@ -34,8 +34,20 @@ class SpExpect(scrapy.Spider):
         item["type"] = type
 
         l = len(data)
-        item["r0"] = data[l-3]
-        item["r1"] = data[l-2]
-        item["r2"] = data[l-1]
-        
-        return item
+
+        if "predictProfitYoy" in data[l - 3]:
+            item["r0"] = data[l - 3]["predictProfitYoy"] * 100
+        else:
+            item["r0"] = 0
+
+        if "predictProfitYoy" in data[l - 2]:
+            item["r1"] = data[l - 2]["predictProfitYoy"] * 100
+        else:
+            item["r1"] = 0
+
+        if "predictProfitYoy" in data[l - 1]:
+            item["r2"] = data[l - 1]["predictProfitYoy"] * 100
+        else:
+            item["r2"] = 0
+
+        yield item

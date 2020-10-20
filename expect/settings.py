@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'expect.spiders'
 #USER_AGENT = 'expect (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -62,9 +62,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = {
 #    'expect.pipelines.ExpectPipeline': 300,
-#}
+    'expect.pipelines.MysqlWriterPipeline': 800,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -90,7 +91,7 @@ ROBOTSTXT_OBEY = True
 ROOT_PATH = "D:/data/"
 DB_SERVER_NAME = "119.8.103.176"
 DB_SERVER_USER_NAME = "root"
-DB_SERVER_PASSWORD = "password"
+DB_SERVER_PASSWORD = "m42mPst4AIFldpfD"
 DB_NAME = "stock"
-CLOUD_SSO_TOKEN = "EAC2DA0D6DD5FAADFD824B36276CADB0"
+CLOUD_SSO_TOKEN = "EE91E066A3EFA36B7B89F7E17DCF901B"
 TUSHARE_TOKEN = "c82b0e129f73c37ae7a7f225b67f00ae2ab175f9373973aaba29feff"
